@@ -45,6 +45,8 @@ class Market
   end
 
   def sell(food, quantity)
+    return if quantity > total_inventory[food]
+    return if total_inventory.keys.include?(food)
 
   end
 
