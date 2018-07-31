@@ -20,30 +20,28 @@ class Market
 
   def vendors_that_sell(food)
     @vendors.map do |vendor|
-      if vendor.inventory.include?(food.capitalize)
+      if vendor.inventory.include?(food)
         vendor
       end
     end.compact
   end
 
   def sorted_item_list
-    capitalize_items.sort
-  end
-
-  def find_items_list
     items = []
     @vendors.each do |vendor|
       items << vendor.inventory.keys
     end
-    items.flatten.uniq
+    items.flatten.uniq.sort
   end
 
-  def capitalize_items
-    find_items_list.map do |item|
-      item.gsub(/\w+/) do |word|
-        word.capitalize
+  def total_inventory
+    hash = Hash.new(0)
+    @vendors.each do |vendor|
+      vendor.inventory.each do |item, quantity|
+        hash[item] += quantity
       end
     end
+    hash
   end
 
 end

@@ -26,12 +26,12 @@ class VendorTest < Minitest::Test
 
   def test_it_can_stock_food_and_call_inventory
     @vendor.stock("Peaches", 30)
-    assert_equal 30, @vendor.check_stock("peaches")
+    assert_equal 30, @vendor.check_stock("Peaches")
 
     @vendor.stock("Peaches", 25)
     assert_equal 55, @vendor.check_stock("Peaches")
 
-    @vendor.stock("tomatoes", 12)
+    @vendor.stock("Tomatoes", 12)
     assert_equal 12, @vendor.check_stock("Tomatoes")
 
     expected = {"Peaches" => 55, "Tomatoes" => 12}
