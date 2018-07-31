@@ -9,6 +9,10 @@ class Vendor
   end
 
   def check_stock(food_name)
-    @inventory[food_name]
+    @inventory[food_name.capitalize]
+  end
+
+  def stock(food_name, quantity)
+    @inventory[food_name.capitalize] += quantity
   end
 end
