@@ -5,6 +5,10 @@ class Vendor
 
   def initialize(name)
     @name = name
-    @inventory = {}
+    @inventory = Hash.new(0)
+  end
+
+  def check_stock(food_name)
+    @inventory[food_name]
   end
 end
