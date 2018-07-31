@@ -44,4 +44,8 @@ class Market
     hash
   end
 
+  def sell(food, quantity)
+
+  end
+
 end
